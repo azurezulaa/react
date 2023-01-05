@@ -1,0 +1,18 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+.margin20 {
+  margin: 20px;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  color: blueviolet;
+}
