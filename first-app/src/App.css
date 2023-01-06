@@ -22,7 +22,6 @@ a {
   text-decoration: none;
   color: #424242;
 }
-
 .flex {
   display: flex;
   justify-content: space-between;
@@ -66,11 +65,25 @@ a {
 .MEDIUM {
   background-color: black;
 }
-.content-tag {
+.content-menu button {
   margin-right: 40px;
   font-weight: 700;
+  border: none;
+  background-color: white;
 }
-.content-tag:hover {
+.content-menu button:hover {
   color: #d05270;
   text-decoration: underline;
+}
+.card {
+  margin: 50px 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.card a {
+  border-bottom: #d05270 1px solid;
+  padding-bottom: 5px;
 }
