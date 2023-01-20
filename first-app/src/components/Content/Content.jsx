@@ -1,13 +1,14 @@
 import Btn from "../Btn";
 import Card from "../Card";
+import { useState } from "react";
 const menus = [
-  "All",
-  "UI Design",
-  "UX Design",
-  "Product Design",
-  "Articles",
-  "Tutorials",
-  "News",
+  { name: "All", category: "ALL" },
+  { name: "UI Design", category: "UI", class: "" },
+  { name: "UX Design", category: "UX", class: "" },
+  { name: "Developer Design", category: "DEV", class: "" },
+  { name: "Articles", category: "1", class: "" },
+  { name: "Tutorials", category: "2", class: "" },
+  { name: "News", category: "3", class: "" },
 ];
 const blogs = [
   {
@@ -35,7 +36,7 @@ const blogs = [
     link: "#",
   },
   {
-    category: "UI",
+    category: "DEV",
     title: "This way is wrong about UI Design.",
     text: "A quick guide to assisting users in the challenging steps from learning about your podcast on the web.  A quick guide to assisting users in the challenging steps from learning about your podcast on the web.",
     image: "/images/content2.png",
@@ -43,7 +44,7 @@ const blogs = [
     link: "#",
   },
   {
-    category: "UX",
+    category: "DEV",
     title: "This way is wrong about UX Design.",
     text: "A quick guide to assisting users in the challenging steps from learning about your podcast on the web.  A quick guide to assisting users in the challenging steps from learning about your podcast on the web.",
     image: "/images/content1.png",
@@ -51,7 +52,7 @@ const blogs = [
     link: "#",
   },
   {
-    category: "UI",
+    category: "DEV",
     title: "This way is wrong about UI Design.",
     text: "A quick guide to assisting users in the challenging steps from learning about your podcast on the web.  A quick guide to assisting users in the challenging steps from learning about your podcast on the web.",
     image: "/images/content2.png",
@@ -61,15 +62,28 @@ const blogs = [
 ];
 
 const Content = () => {
+  const [display, setDisplay] = useState(blogs);
+  const [act, setAct] = useState("ALL");
+
+  const check = (cat) => {
+    setAct(cat);
+    const filtered = blogs.filter((item) => item.category === cat);
+    if (cat === "ALL") {
+      setDisplay(blogs);
+    } else {
+      setDisplay(filtered);
+    }
+  };
+
   return (
     <div className="container">
       <div className="content-menu">
         {menus.map((menu) => {
-          return <Btn btn={menu} />;
+          return <Btn menu={menu} check={check} activeText={act} />;
         })}
       </div>
       <div className="grid">
-        {blogs.map((blog) => {
+        {display.map((blog) => {
           return <Card card={blog} />;
         })}
       </div>

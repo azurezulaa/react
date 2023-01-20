@@ -87,3 +87,17 @@ a {
   border-bottom: #d05270 1px solid;
   padding-bottom: 5px;
 }
+.body {
+  position: relative;
+  min-height: 100vh;
+}
+footer {
+  margin: 0 auto;
+  /* background-color: #1275b1; */
+  height: 100px;
+  position: absolute;
+  bottom: -200px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* text-align: center; */
+}

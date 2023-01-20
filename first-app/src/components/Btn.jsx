@@ -1,8 +1,14 @@
-const Btn = (props) => {
-  const angilah = () => {};
+import { useState } from "react";
+
+const Btn = ({ menu, check, activeText }) => {
   return (
-    <button className="font18" onClick={angilah}>
-      {props.btn}
+    <button
+      onClick={() => {
+        check(menu.category);
+      }}
+      className={menu.category === activeText ? "pink font18" : "font18"}
+    >
+      {menu.name}
     </button>
   );
 };
